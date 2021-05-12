@@ -7,16 +7,16 @@ import static java.time.LocalDate.now;
 
 public abstract class Calculator {
 
-    private static final Logger LOG = Logger.getLogger(Calculator.class.getName());
-
+    private final LogTransaction logger;
     private final Month promotionalMonth;
 
-    public Calculator(Month promotionalMonth) {
+    public Calculator(LogTransaction logger, Month promotionalMonth) {
+        this.logger = logger;
         this.promotionalMonth = promotionalMonth;
     }
 
     public double calculate(double cost) {
-        LOG.info(this.getClass().getName());
+        logger.log(this.getClass().getName());
         return promotionalMonth.equals(now().getMonth())
                 ? promotionalCost(cost)
                 : cost(cost);

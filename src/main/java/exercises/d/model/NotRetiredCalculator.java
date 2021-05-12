@@ -4,8 +4,8 @@ import java.time.Month;
 
 public class NotRetiredCalculator extends Calculator {
 
-    public NotRetiredCalculator(Month promotionalMonth) {
-        super(promotionalMonth);
+    public NotRetiredCalculator(LogTransaction logger, Month promotionalMonth) {
+        super(logger, promotionalMonth);
     }
 
     @Override
